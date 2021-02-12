@@ -64,7 +64,7 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function    format          argument */
+	/* function    format              argument */
 	{ run_command, "\uf11c %s | ",     "layout=$(keyboard-layout -c); case $layout in 'rs(latinyz)') echo rs;; rs) echo рс;; *) echo $layout;; esac" },
 	{ run_command, "%s ",              "[ 'false' == $(pamixer --get-mute) ] && echo \uf028 || echo \uf6a9 " },
 	{ run_command, "%4s | ",           "amixer -D pulse sget Master | sed -En '0,/.*\\[(.*%)\\].*/{s//\\1/p}'" },
