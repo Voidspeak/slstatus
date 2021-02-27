@@ -68,7 +68,7 @@ static const struct arg args[] = {
 	{ run_command, "\uf11c %s | ",     "layout=$(keyboard-layout -c); case $layout in 'rs(latinyz)') echo rs;; rs) echo рс;; *) echo $layout;; esac" },
 	{ run_command, "%s ",              "[ 'false' == $(pamixer --get-mute) ] && echo \uf028 || echo \uf6a9 " },
 	{ run_command, "%4s | ",           "amixer -D pulse sget Master | sed -En '0,/.*\\[(.*%)\\].*/{s//\\1/p}'" },
-	{ netspeed_rx, "\uf019 %7sB/s | ", "wlp7s0" },
+	{ netspeed_rx, "\uf019 %7sB/s | ", "wlan0" },
 	{ cpu_perc,    "\uf2db %3s%% | ",  NULL },
 	{ ram_perc,    "\uf538 %3s%% | ",  NULL },
 	{ datetime,    "%s",               "\uf073 %a %d %b | \uf017 %T" },
