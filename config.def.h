@@ -65,9 +65,11 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function    format              argument */
+	{ run_command, "%s | ",            "[ 'on' == $(cam-state) ] && echo \uf03d || echo \uf4e2" },
+	{ run_command, "%s | ",            "[ 'on' == $(mic-state) ] && echo \uf130 || echo \uf131" },
 	{ run_command, "\uf11c %s | ",     "layout=$(keyboard-layout -c); case $layout in 'rs(latinyz)') echo rs;; rs) echo рс;; *) echo $layout;; esac" },
 	{ run_command, "%s ",              "[ 'false' == $(pamixer --get-mute) ] && echo \uf028 || echo \uf6a9 " },
-	{ run_command, "%4s | ",           "amixer -D pulse sget Master | sed -En '0,/.*\\[(.*%)\\].*/{s//\\1/p}'" },
+	{ run_command, "%4s | ",           "echo \"$(pamixer --get-volume)%\"" },
 	{ netspeed_rx, "\uf019 %7sB/s | ", "wlp7s0" },
 	{ cpu_perc,    "\uf2db %3s%% | ",  NULL },
 	{ ram_perc,    "\uf538 %3s%% | ",  NULL },
