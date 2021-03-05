@@ -5,7 +5,6 @@ const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
-
 /* maximum output string length */
 #define MAXLEN 2048
 
@@ -65,10 +64,10 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function    format              argument */
-	{ run_command, "%s | ",            "[ 'on' == $(cam-state) ] && echo \uf03d || echo \uf4e2" },
-	{ run_command, "%s | ",            "[ 'on' == $(mic-state) ] && echo \uf130 || echo \uf131" },
-	{ run_command, "%s ",              "[ 'false' == $(pamixer --get-mute) ] && echo \uf028 || echo \uf6a9 " },
-	{ run_command, "%4s | ",           "echo \"$(pamixer --get-volume)%\"" },
+	{ run_command, "%s | ",            "[ 'on' == $(cam-control -s) ] && echo \uf03d || echo \uf4e2" },
+	{ run_command, "%s | ",            "[ 'on' == $(mic-control -s) ] && echo \uf130 || echo \uf131" },
+	{ run_command, "%s ",              "[ 'false' == $(volume-control -sm) ] && echo \uf028 || echo \uf6a9 " },
+	{ run_command, "%4s | ",           "echo \"$(volume-control -sv)%\"" },
 	{ netspeed_rx, "\uf019 %7sB/s | ", "wlp7s0" },
 	{ cpu_perc,    "\uf2db %3s%% | ",  NULL },
 	{ ram_perc,    "\uf538 %3s%% | ",  NULL },
