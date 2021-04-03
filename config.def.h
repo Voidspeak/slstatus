@@ -5,7 +5,6 @@ const unsigned int interval = 1000;
 
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
-
 /* maximum output string length */
 #define MAXLEN 2048
 
@@ -65,11 +64,12 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function    format              argument */
-	{ run_command, "\uf11c %s | ",     "layout=$(keyboard-layout -c); case $layout in 'rs(latinyz)') echo rs;; rs) echo рс;; *) echo $layout;; esac" },
-	{ run_command, "%s ",              "[ 'false' == $(pamixer --get-mute) ] && echo \uf028 || echo \uf6a9 " },
-	{ run_command, "%4s | ",           "echo \"$(pamixer --get-volume)%\"" },
+	{ run_command, "%s | ",            "[ 'on' == $(mic-control -s) ] && echo \uf130 || echo \uf131" },
+	{ run_command, "%s ",              "[ 'false' == $(volume-control -sm) ] && echo \uf028 || echo \uf6a9 " },
+	{ run_command, "%4s | ",           "echo \"$(volume-control -sv)%\"" },
 	{ netspeed_rx, "\uf019 %7sB/s | ", "wlan0" },
 	{ cpu_perc,    "\uf2db %3s%% | ",  NULL },
 	{ ram_perc,    "\uf538 %3s%% | ",  NULL },
-	{ datetime,    "%s",               "\uf073 %a %d %b | \uf017 %T" },
+	{ datetime,    "%s | ",            "\uf073 %a %d %b | \uf017 %T" },
+	{ run_command, "\uf11c %s ",       "layout=$(keyboard-layout -c); case $layout in 'rs(latinyz)') echo rs;; rs) echo рс;; *) echo $layout;; esac" },
 };
