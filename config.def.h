@@ -68,7 +68,7 @@ static const struct arg args[] = {
 	{ run_command, "%s | ",            "[ 'on' == $(mic-control -s) ] && echo \uf130 || echo \uf131" },
 	{ run_command, "%s ",              "[ 'false' == $(volume-control -sm) ] && echo \uf028 || echo \uf6a9 " },
 	{ run_command, "%4s | ",           "echo \"$(volume-control -sv)%\"" },
-	{ netspeed_rx, "\uf019 %7sB/s | ", "wlp7s0" },
+	{ netspeed_rx, "\uf019 %7sB/s | ", "enp8s0" },
 	{ cpu_perc,    "\uf2db %3s%% | ",  NULL },
 	{ ram_perc,    "\uf538 %3s%% | ",  NULL },
 	{ datetime,    "%s | ",               "\uf073 %a %d %b | \uf017 %T" },
